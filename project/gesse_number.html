@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number gusse</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: white;
+
+        }
+
+        .cont {
+            margin: auto;
+
+            width: 90vw;
+            height: 90vh;
+            background-color: rgb(65, 65, 64);
+            margin-top: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        h1{
+            text-align: center;
+        }
+
+        .box {
+            background-color: rgb(23, 23, 37);
+            width: 90%;
+            height: 90%;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .input-area {
+            /* background-color: red; */
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
+
+        }
+
+        .input-area>input {
+            padding: 15px 60px;
+            margin: 20px;
+        }
+
+        .input-area button {
+            padding: 14px;
+            border-radius: 6px;
+            outline: none;
+            cursor: pointer;
+        }
+        .input-area p{
+            
+            /* font-weight: 900; */
+            font-size: 20px;
+           
+        }
+        #para{
+            color: red;
+            font-weight: 900;
+            font-size: 40px;
+            background-color: gold;
+        }
+        #message{
+            font-size: 40px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Number guessing Game</h1>
+    <div class="cont">
+        <div class="box">
+            <div class="input-area">
+                <h1>Guess a Number</h1>
+                <input id="user-input"  type="text" placeholder="guess the nubmer">
+                <button id="submit" type="submit">submit</button>
+                <p>Previas guesses <span id="prev-guesses">0</span></p>
+                <p> remaining guesses <span id="rem-guesses">10</span></p>
+
+                <p id="message"></p>
+                <p id="para"></p>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    let submitbnt = document.querySelector("#submit");
+    // console.log(submitbnt);
+    let prev_guesses= document.querySelector("#prev-guesses");
+    let rem_guesses = document.querySelector("#rem-guesses");
+    let para = document.querySelector("#para");
+    let userinput = document.querySelector("#user-input");
+
+    let randNumber = Math.floor(Math.random()*100+1);
+    let message = document.querySelector('#message');
+    console.log(randNumber);
+    
+    let prev = [];
+    let remaining_guesses = 3;
+
+    let p = document.createElement("p");
+
+
+    
+
+
+    // let startGame = true;
+
+           submitbnt.addEventListener(("click"),(e)=>{
+          e.preventDefault();
+          let number = parseInt(userinput.value); 
+        //   console.log(number);
+          validation(number);
+          checkGuesse(number);
+
+           })
+
+    function validation(num){
+         if(isNaN(num)){
+          para.innerHTML = "enter the valid nubmer";
+          userinput.value = " ";
+         }
+         else if(num<0){
+            para.innerHTML = "number is lees than zero enter greater";
+            userinput.value = " ";
+         }
+         else if(num>100){
+                para.innerHTML = "Number is greater than 100 please enter less";
+                userinput.value = " ";
+            }
+         }
+
+    function checkGuesse(num){
+        if(remaining_guesses <=0){
+            p.innerHTML = "you loose";
+            userinput.value = " ";
+            prev = [];
+        
+         }
+         remaining_guesses --;
+         rem_guesses.innerHTML = remaining_guesses;
+        prev.push(num);
+        prev_guesses.innerHTML= prev;
+        if(num==randNumber){
+         message.innerHTML= "you won";
+         userinput.value = " ";
+         prev= [];
+  
+        }
+        else if(num< randNumber){
+            message.innerHTML = "enter greater number";
+            userinput.value = " ";
+        }
+        else{
+            message.innerHTML = "enter lees number";
+            userinput.value = " ";
+        }
+    }
+    
+    
+
+
+
+</script>
+
+</html>

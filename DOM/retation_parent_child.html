@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parent siblings:</title>
+</head>
+
+<body style="background-color: #212121; color: white;" >
+    <div class="cont">
+        <h1> helllo jay shree ram</h1>
+    </div>
+
+    <div class="parent">
+        <div class="day">monday</div>
+        <div class="day">tuesday</div>
+        <div class="day">wednesday</div>
+        <div class="day">thursday</div>
+        <div class="day">friday</div>
+        <div class="day">saturaday</div>
+        <div class="day">sunday</div>
+    </div>
+</body>
+<script>
+     
+      let parent = document.querySelector(".parent");
+      console.log(parent);
+      console.log(parent.firstElementChild.textContent);
+console.log(parent.lastElementChild.innerText);
+
+    let children=parent.children;
+    console.log(children);
+      console.log(parent.children[0].innerText);
+
+
+    
+
+//    console.log(Array.from(children));
+
+Array.from(children).forEach((elem)=>{
+    console.log(elem.innerText);
+});
+
+let day = document.querySelector(".day");
+
+console.log(day);
+
+console.log(day.parentNode);
+console.log(day.parentElement);
+console.log(day.nextElementSibling)
+console.log(day.nextSibling);
+
+
+
+//  ya jo he text ka matalab he next line bhi count karti he:
+console.log("nodes", parent.childNodes);
+
+
+
+
+
+
+    
+</script>
+
+</html>

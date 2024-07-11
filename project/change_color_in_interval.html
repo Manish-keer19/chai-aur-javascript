@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changle colore</title>
+    <style>
+body{
+    background-color: rgb(104, 140, 171);
+}
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <h1> click start butoon and change the color of body and click stop button to stop it</h1>
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+    </div>
+</body>
+<script>
+
+    let start = document.querySelector("#start");
+    let stop = document.querySelector("#stop");
+    let intervalID;
+
+       function changColore (){
+
+          let hex = "123456789ABCDEF";
+          let color ='#';
+          for(let i = 0 ;i<6;i++){
+            color += hex[Math.floor(Math.random()*16)];
+
+          }
+          return color;
+       }
+    //    let color = changColore();
+    
+
+    function interval (){
+         intervalID =   setInterval(() => {
+            let randNumber = Math.floor(Math.random() * 255 + 1);
+            let randNumber1 = Math.floor(Math.random() * 255+ 1);
+            let randNumber2 = Math.floor(Math.random() * 255 + 1);
+            console.log(`rgb (${randNumber}) (${randNumber1}) (${randNumber2})`);
+
+            document.body.style.backgroundColor = `rgb(${randNumber},${randNumber1} ,${randNumber2} )`;
+        //    color = changColore();
+        //    console.log(color);
+            // document.body.style.backgroundColor = `${color}`
+        }, 1000)
+    }
+
+  
+
+
+    start.addEventListener("click", (e) => {
+
+           interval();
+
+}, false);
+
+    stop.addEventListener("click",()=>{
+        alert("haw bhai ruk gaya");
+         clearInterval(intervalID); 
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,82 @@
+
+
+<!-- //  setattribute getaatribute , queryselectre queryselectreAll , getElementById(), getElementByClassName();
+
+//  how to handle nodelist:
+//  how to handle HTMLCollection -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic dom</title>
+    <style>
+
+        body{
+            background-color:blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+      <h1> welocme to manish website: </h1>
+     <div class="cont">
+        <h3 class="classh3" id="idh3">Ram</h3>
+        <h3 class="classh3" id="idh3">Ram</h3>
+        <h3 class="classh3" id="idh3">Ram</h3>
+        <h3 class="classh3" id="idh3">Ram</h3>
+        <h3 class="classh3" id="idh3">Ram</h3>
+        <h3 class="classh3" id="idh3">Ram</h3>
+        <h3 class="classh3" id="idh3">Ram</h3>
+        <h3 class="classh3" id="idh3">Ram</h3>
+        </div>
+
+        <ul>
+            <li class="li">one</li>
+            <li class="li">two</li>
+            <li class="li">three</li>
+            <li class="li">four</li>
+            <li class="li">five</li>
+        </ul>
+
+     <script>
+
+        let h3elems = document.querySelector(".classh3");
+        console.log( h3elems.getAttribute('id'));
+        console.log( h3elems.getAttribute('class'));
+        h3elems.setAttribute("class", "ram shyam ravi");
+        h3elems.setAttribute("id", "hello id pro");
+
+        console.log(h3elems.innerHTML)
+        console.log(h3elems.textContent)
+        console.log(h3elems.innerText);
+
+        
+        let allclass = document.querySelectorAll(".classh3");
+
+        console.log(allclass);
+
+        allclass.forEach((elem)=>{
+               console.log(elem);
+            elem.style.color="blue";
+              
+        });
+
+
+        let lielem = document.querySelectorAll(".li");
+        console.log(lielem);
+       
+        lielem.forEach((elem)=>{
+            elem.style.color = "brown";
+        })
+
+        let classList = document.getElementsByClassName('li');
+         console.log(classList);
+        
+      let arrclassList =    Array.from(classList);
+      console.log(arrclassList);
+
+          
+     </script>
+</body>
+</html>

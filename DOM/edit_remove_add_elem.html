@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: white;">
+     <h1> jay shree ram </h1>
+
+     <ul class="language">
+        <li>javascript
+
+        </li>
+     </ul>
+</body>
+
+<script>
+     let div = document.createElement("div");
+    //  console.log(div); 
+     let divtext = document.createTextNode("hello i am div");
+     div.appendChild(divtext);
+     document.body.appendChild(div);
+
+
+     let ul = document.querySelector('.language');
+    //  console.log(ul)
+    
+//   it is not a optimise approach because innerHTML traversal every node:
+    function addLang(LgName){
+         
+        let li = document.createElement("li");
+        console.log(li);
+        li.innerHTML= LgName;
+      document.querySelector(".language").appendChild(li);
+    }
+
+     addLang("python");
+     addLang("DSA");
+
+    //  optimised approaach:
+    function optimiseApp_addlang(LgName){
+     let li =   document.createElement("li");
+       li.appendChild(document.createTextNode(LgName));
+       document.querySelector(".language").appendChild(li);
+    }
+
+      optimiseApp_addlang("typsript");
+      optimiseApp_addlang("C++");
+
+    
+
+    //   edit li's:
+  let secondLang=  document.querySelector("li:nth-child(2)");
+
+//    console.log(secondLang);
+//   secondLang.textContent = "C";
+  let newli = document.createElement("li");
+  newli.textContent  = "C";
+  secondLang.replaceWith(newli);
+
+
+//   second method to edit li's:
+ let firstlang = document.querySelector("li:first-child");
+
+
+//  console.log(firstlang);
+firstlang.outerHTML = "<li> Java </li>"
+
+
+let lastlang = document.querySelector("li:last-child");
+//  console.log(lastlang);
+lastlang.remove();
+
+
+ 
+
+
+    
+
+</script>
+</html>

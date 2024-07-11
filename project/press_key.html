@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kedown</title>
+    <style>
+
+        table {
+    border-collapse: collapse; /* This removes the default spacing between table cells */
+    width: 100%; /* You can set a specific width */
+}
+
+th, td {
+    border: 6px solid wheat; /* This adds a solid border around each cell */
+    padding: 8px; /* Adjust padding as needed */
+    text-align: left; /* Align text as needed */
+}
+
+ /* th {
+    background-color: #f2f2f2; Background color for table headers
+}  */
+        body {
+            background-color: #212121;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .color {
+            border: 6px solid white;
+            /* background-color: red; */
+            width: 100px;
+            height: 100px;
+            color: white;
+
+        }
+
+        .cont {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 79vh;
+            /* background-color: gold; */
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1> press any key and see magic </h1>
+
+    <div class="cont">
+
+    </div>
+
+</body>
+<script>
+
+    let cont = document.querySelector(".cont");
+    console.log(cont);
+    let table;
+
+    window.addEventListener("keydown", (e) => {
+        console.log(e.key, "key press");
+        // table = document.createElement("table");
+        // table.setAttribute("class", "color");
+        // table.style.border = '1px slid white';
+        
+
+        cont.innerHTML = `
+          <table style = "border 5xp solid white; color = white" class="color">
+            <tr>
+                <th>key</th>
+                <th>keycode</th>
+                <th>code</th>
+            </tr>
+            <tr>
+                <td>${e.key ===""?"space":e.key} </td>
+                <td>${e.keyCode}</td>
+                <td>>${e.code} </td>
+            </tr>
+
+            </table>
+       `
+
+      
+    });
+
+
+
+</script>
+
+</html>
